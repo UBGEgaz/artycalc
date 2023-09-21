@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: https://stefanoferrao.github.io/ArtyCalc/
