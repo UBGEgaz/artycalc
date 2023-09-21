@@ -1,0 +1,92 @@
+<!-- INICIO PAGINA1 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <iframe src="https://stefanoferrao.github.io/ArtyCalc/menu.html" width="100%" frameborder="0"></iframe>
+    <div id="container">
+        <h2 style="text-align: center; color: #6b8e23;">“Koronides” Field Gun 120mm (100-250m)</h2> <img src="https://foxhole.wiki.gg/images/b/b6/120-68_Koronides_Field_Gun_Vehicle_Icon.png" alt="Imagem" width="150" style="display: block; margin: 0 auto;">
+        <h3>Informe a Distância e Azimute do alvo:</h3>
+        
+<div class="input-group">
+        <label for="distanciaA">Distância do Alvo:</label>
+        <input type="number" id="distanciaA" step="any">
+    </div>
+        
+<div class="input-group">
+        <label for="azimuteA">Azimute do Alvo:</label>
+        <input type="number" id="azimuteA" step="any">
+    </div>
+
+        <h3>Informe a força e direção do vento:</h3>
+        <label for="distanciaB" style="color: #6b8e23;">Força do vento:</label>
+    
+        <select id="distanciaB">
+        </div>
+            <option value="15">Nível 1 🟩⬜⬜⬜⬜</option>
+            <option value="30">Nível 2 🟩🟩⬜⬜⬜</option>
+            <option value="45">Nível 3 🟩🟩🟩⬜⬜</option>
+            <option value="60">Nível 4 🟩🟩🟩🟩⬜</option>
+            <option value="75">Nível 5 🟩🟩🟩🟩🟩</option>
+        </select>
+
+
+        <div class="input-group">
+        <label for="azimuteB">Direção do vento:</label>
+        <input type="number" id="azimuteB" step="any">
+    </div>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div id="resultados">
+            <h2>Ajuste o “Koronides” Field Gun para:</h2>
+            <p id="resultadoDistanciaC"></p>
+            <p id="resultadoAzimuteC"></p>
+        </div>
+    </div>
+</body>
+</html> 
+
+<h4>Informaçoes adicionais</h4>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Health</th>
+            <th>Disabled Under</th>
+            <th>Resistance</th>
+            <th>Packaged Size</th>
+            <th>Repair Cost</th>
+            <th>Crew</th>
+            <th>Armament</th>
+            <th>Production Site</th>
+            <th>Cost</th>
+            <th>Firing Range</th>
+        </tr>
+        <tr>
+            <td>120-68 “Koronides” Field Gun</td>
+            <td>1000</td>
+            <td>50% health</td>
+            <td>light armor</td>
+            <td>Small</td>
+            <td>120 <img src="https://foxhole.wiki.gg/images/1/12/Basic_Materials.png" width="30" height="30"></td></td>
+            <td>2</td>
+            <td>120mm Light Artillery Cannon</td>
+            <td>Garage</td>
+            <td>50 <img src="https://foxhole.wiki.gg/images/9/94/Refined_Materials.png" width="30" height="30">            
+            <td>100-250 meters</td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- FIM PAGINA1 -->
