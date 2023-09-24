@@ -34,10 +34,12 @@
         resultadoDistanciaCElement.style.color = ''; // Reset color
         resultadoDistanciaCElement.innerHTML = 'Distância: ' + distanciaC.toFixed(2) + 'm';
 
+        /*
         if (distanciaC > 350) {
             resultadoDistanciaCElement.style.color = 'red';
             resultadoDistanciaCElement.innerHTML += ' <span style="color: red;"> - Fora do alcance</span>';
         }
+        */
 
         resultadoAzimuteCElement.innerHTML = 'Azimute: ' + alphaCGraus.toFixed(2) + '°';
     }
