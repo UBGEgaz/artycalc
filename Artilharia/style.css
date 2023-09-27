@@ -130,6 +130,7 @@ button:hover {
     text-align: center;
     vertical-align: middle;
     justify-content: space-between;
+    border: 1px solid #7c7c7c;
 }
 
 table {
