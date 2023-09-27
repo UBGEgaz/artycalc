@@ -125,6 +125,13 @@ button:hover {
     flex: 2;
 }
 
+.flags {
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
