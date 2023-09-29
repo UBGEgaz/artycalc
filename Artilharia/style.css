@@ -87,6 +87,14 @@ input[type="number"] {
     color: #eee;
 }
 
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 2px;
+    background-color: #444;
+    color: #eee;
+}
+
 button {
     background-color: #6b8e23;
     color: #fff;
@@ -107,6 +115,14 @@ button:hover {
     border-radius: 4px;
     background-color: #444;
     color: #eee;
+}
+
+#edit-button {
+    display: none;
+}
+
+#delete-button {
+    display: none;
 }
 
 .input-group {

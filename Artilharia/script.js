@@ -34,12 +34,81 @@
         resultadoDistanciaCElement.style.color = ''; // Reset color
         resultadoDistanciaCElement.innerHTML = 'Distância: ' + distanciaC.toFixed(2) + 'm';
 
-        /*
-        if (distanciaC > 350) {
+       /* if (distanciaC > 350) {
             resultadoDistanciaCElement.style.color = 'red';
             resultadoDistanciaCElement.innerHTML += ' <span style="color: red;"> - Fora do alcance</span>';
         }
-        */
-
+*/
         resultadoAzimuteCElement.innerHTML = 'Azimute: ' + alphaCGraus.toFixed(2) + '°';
     }
+
+    // Salvar Coordenadas do Alvo...
+
+const dataForm = document.getElementById('data-form');
+        const dataTable = document.getElementById('data-table');
+        const editButton = document.getElementById('edit-button');
+        const deleteButton = document.getElementById('delete-button');
+        let editRowIndex = null;
+
+        dataForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const azimuteA = document.getElementById('azimuteA').value;
+            const distanciaA = document.getElementById('distanciaA').value;
+
+            if (editRowIndex === null) {
+                // Adicionar uma nova linha à tabela
+                const newRow = dataTable.insertRow();
+                newRow.insertCell(0).textContent = nome;
+                newRow.insertCell(1).textContent = azimuteA;
+                newRow.insertCell(2).textContent = distanciaA;
+                const actionsCell = newRow.insertCell(3);
+                
+                actionsCell.innerHTML = '<button class="edit-button">Editar</button> <button class="delete-button">Excluir</button>';
+
+                // Adicionar eventos de clique para editar e excluir
+                const editBtn = actionsCell.querySelector('.edit-button');
+                editBtn.addEventListener('click', function () {
+                    editRowIndex = newRow.rowIndex;
+                    document.getElementById('nome').value = nome;
+                    document.getElementById('azimuteA').value = azimuteA;
+                    document.getElementById('distanciaA').value = distanciaA;
+                    editButton.style.display = 'inline-block';
+                    deleteButton.style.display = 'inline-block';
+                });
+
+                const deleteBtn = actionsCell.querySelector('.delete-button');
+                deleteBtn.addEventListener('click', function () {
+                    dataTable.deleteRow(newRow.rowIndex);
+                });
+
+                // Limpar os campos do formulário
+                dataForm.reset();
+            } else {
+                // Atualizar a linha existente
+                const row = dataTable.rows[editRowIndex];
+                row.cells[0].textContent = nome;
+                row.cells[1].textContent = azimuteA;
+                row.cells[2].textContent = distanciaA;
+                editButton.style.display = 'none';
+                deleteButton.style.display = 'none';
+                editRowIndex = null;
+                dataForm.reset();
+            }
+        });
+
+        editButton.addEventListener('click', function () {
+            editRowIndex = null;
+            dataForm.reset();
+            editButton.style.display = 'none';
+            deleteButton.style.display = 'none';
+        });
+
+        deleteButton.addEventListener('click', function () {
+            dataTable.deleteRow(editRowIndex);
+            editRowIndex = null;
+            dataForm.reset();
+            editButton.style.display = 'none';
+            deleteButton.style.display = 'none';
+        });

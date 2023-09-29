@@ -1,13 +1,13 @@
 <!-- INICIO PAGINA2 -->
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <iframe src="https://ubgegaz.github.io/artycalc/menu.html" width="100%" frameborder="0"></iframe>
+    <iframe src="/artycalc/menu.html" width="100%" frameborder="0"></iframe>
     <div id="container">
         <h2 style="text-align: center; color: #6b8e23;">“Thunderbolt” Cannon 150mm (200-350m)</h2> <img
             src="https://foxhole.wiki.gg/images/0/0e/50-500_Thunderbolt_Cannon_Structure_Icon.png" alt="Imagem"
@@ -41,20 +41,41 @@
         <p id="resultadoDistanciaC"></p>
         <p id="resultadoAzimuteC"></p>
     </div>
-<p></p><div class="flags">
+    <p>
+    <div class="flags">
         <img src="/artycalc/img/flags/flag1.webp">
         <img src="/artycalc/img/flags/flag2.webp">
         <img src="/artycalc/img/flags/flag3.webp">
         <img src="/artycalc/img/flags/flag4.webp">
         <img src="/artycalc/img/flags/flag5.webp">
-    </div><p>
+    </div>
+    <p>
+        <!-- INICIO SALVAR COORDENADAS -->
+        <label for="nome">Nome do Alvo:</label>
+        <input type="text" id="nome" required><br><br>
+    <form id="data-form">
+        <button type="submit">Salvar Coordenadas do Alvo</button>
+    </form>
+    <table id="data-table" border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Azimute do Alvo</th>
+                <th>Distância do Alvo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- INICIO SALVAR COORDENADAS -->
     </div>
 </body>
 
 </html>
 <h4>Informaçoes adicionais</h4>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -64,27 +85,27 @@
 <body>
     <table>
         <tr>
-            <th>Name</th>
-            <th>Map Intelligence Icon</th>
-            <th>Building Type</th>
-            <th>Health</th>
-            <th>Resistance</th>
-            <th>Production Site</th>
-            <th>Cost</th>
-            <th>Repair Cost</th>
-            <th>Firing Range</th>
-            <th>Ammo Type</th>
+            <th>Nome</th>
+            <th>Ícone de Inteligência no Mapa</th>
+            <th>Tipo de Construção</th>
+            <th>Pontos de Vida</th>
+            <th>Resistência</th>
+            <th>Local de Produção</th>
+            <th>Custo</th>
+            <th>Custo de Reparo</th>
+            <th>Alcance de Tiro</th>
+            <th>Tipo de Munição</th>
         </tr>
         <tr>
             <td>50-500 “Thunderbolt” Cannon</td>
             <td><img src="https://foxhole.wiki.gg/images/c/c1/LegendArtillery.png" width="30" height="30"></td>
-            <td>Player Manned Defense</td>
-            <td>1000 (4000 in trench)</td>
-            <td>Tier1Structure</td>
-            <td>Construction Yard</td>
+            <td>Defesa Tripulada por Jogador</td>
+            <td>1000 (4000 em trincheira)</td>
+            <td>Estrutura Nível 1</td>
+            <td>Estaleiro de Construção</td>
             <td>195 <img src="https://foxhole.wiki.gg/images/9/94/Refined_Materials.png" width="30" height="30"></td>
             <td>100 <img src="https://foxhole.wiki.gg/images/1/12/Basic_Materials.png" width="30" height="30"></td>
-            <td>200-350 meters</td>
+            <td>200-350 metros</td>
             <td>150mm</td>
         </tr>
     </table>
