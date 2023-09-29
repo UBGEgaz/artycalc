@@ -45,114 +45,95 @@
 // Salvar Coordenadas do Alvo...
 
 const dataForm = document.getElementById('data-form');
-const dataTable = document.getElementById('data-table');
-const editButton = document.getElementById('edit-button');
-const deleteButton = document.getElementById('delete-button');
-let editRowIndex = null;
+        const dataTable = document.getElementById('data-table');
+        const editButton = document.getElementById('edit-button');
+        const deleteButton = document.getElementById('delete-button');
+        const clearButton = document.getElementById('clear-button');
+        let editRowIndex = null;
 
-// Função para salvar os dados no localStorage
-function saveDataToLocalStorage() {
-    const data = [];
-    const rows = dataTable.rows;
+        // Função para salvar dados no localStorage
+        function saveData(nome, azimuteA, distanciaA) {
+            const data = JSON.parse(localStorage.getItem('data')) || [];
+            data.push({ nome, azimuteA, distanciaA });
+            localStorage.setItem('data', JSON.stringify(data));
+        }
 
-    for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        const nome = row.cells[0].textContent;
-        const azimuteA = row.cells[1].textContent;
-        const distanciaA = row.cells[2].textContent;
-        data.push({ nome, azimuteA, distanciaA });
-    }
+        // Função para carregar dados da localStorage e atualizar a tabela
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem('data')) || [];
+            const tbody = dataTable.querySelector('tbody');
+            tbody.innerHTML = '';
 
-    localStorage.setItem('dados', JSON.stringify(data));
-}
+            data.forEach((item, index) => {
+                const newRow = tbody.insertRow();
+                newRow.insertCell(0).textContent = item.nome;
+                newRow.insertCell(1).textContent = item.azimuteA;
+                newRow.insertCell(2).textContent = item.distanciaA;
+                const actionsCell = newRow.insertCell(3);
+                actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i> Editar</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i> Excluir</button>`;
+            });
 
-// Função para carregar dados do localStorage
-function loadSavedData() {
-    const savedData = JSON.parse(localStorage.getItem('dados') || '[]');
+            // Adicionar eventos de clique para editar e excluir
+            const editButtons = document.querySelectorAll('.edit-button');
+            editButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    editRowIndex = parseInt(button.getAttribute('data-index'));
+                    const data = JSON.parse(localStorage.getItem('data')) || [];
+                    const item = data[editRowIndex];
+                    document.getElementById('nome').value = item.nome;
+                    document.getElementById('azimuteA').value = item.azimuteA;
+                    document.getElementById('distanciaA').value = item.distanciaA;
+                    editButton.style.display = 'inline-block';
+                    deleteButton.style.display = 'inline-block';
+                });
+            });
 
-    for (const { nome, azimuteA, distanciaA } of savedData) {
-        const newRow = dataTable.insertRow();
-        newRow.insertCell(0).textContent = nome;
-        newRow.insertCell(1).textContent = azimuteA;
-        newRow.insertCell(2).textContent = distanciaA;
-        const actionsCell = newRow.insertCell(3);
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const index = parseInt(button.getAttribute('data-index'));
+                    const data = JSON.parse(localStorage.getItem('data')) || [];
+                    data.splice(index, 1);
+                    localStorage.setItem('data', JSON.stringify(data));
+                    loadData();
+                });
+            });
+        }
 
-        actionsCell.innerHTML = '<button class="edit-button">Editar</button> <button class="delete-button">Excluir</button>';
-    }
-}
+        // Carregar dados ao iniciar a página
+        loadData();
 
-// Carregar dados do localStorage quando a página é carregada
-loadSavedData();
+        dataForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-dataForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const azimuteA = document.getElementById('azimuteA').value;
+            const distanciaA = document.getElementById('distanciaA').value;
 
-    const nome = document.getElementById('nome').value;
-    const azimuteA = document.getElementById('azimuteA').value;
-    const distanciaA = document.getElementById('distanciaA').value;
+            if (editRowIndex === null) {
+                // Adicionar uma nova linha à tabela
+                saveData(nome, azimuteA, distanciaA);
+            } else {
+                // Atualizar a linha existente
+                const data = JSON.parse(localStorage.getItem('data')) || [];
+                data[editRowIndex] = { nome, azimuteA, distanciaA };
+                localStorage.setItem('data', JSON.stringify(data));
+                editRowIndex = null;
+            }
 
-    if (editRowIndex === null) {
-        // Adicionar uma nova linha à tabela
-        const newRow = dataTable.insertRow();
-        newRow.insertCell(0).textContent = nome;
-        newRow.insertCell(1).textContent = azimuteA;
-        newRow.insertCell(2).textContent = distanciaA;
-        const actionsCell = newRow.insertCell(3);
-
-        actionsCell.innerHTML = '<button class="edit-button">Editar</button> <button class="delete-button">Excluir</button>';
-
-        // Adicionar eventos de clique para editar e excluir
-        const editBtn = actionsCell.querySelector('.edit-button');
-        editBtn.addEventListener('click', function () {
-            editRowIndex = newRow.rowIndex;
-            document.getElementById('nome').value = nome;
-            document.getElementById('azimuteA').value = azimuteA;
-            document.getElementById('distanciaA').value = distanciaA;
-            editButton.style.display = 'inline-block';
-            deleteButton.style.display = 'inline-block';
+            // Limpar os campos do formulário
+            dataForm.reset();
+            loadData();
         });
 
-        const deleteBtn = actionsCell.querySelector('.delete-button');
-        deleteBtn.addEventListener('click', function () {
-            dataTable.deleteRow(newRow.rowIndex);
-            saveDataToLocalStorage(); // Atualizar dados após a exclusão
+        editButton.addEventListener('click', function () {
+            editRowIndex = null;
+            dataForm.reset();
+            editButton.style.display = 'none';
+            deleteButton.style.display = 'none';
         });
 
-        // Limpar os campos do formulário
-        dataForm.reset();
-
-        // Salvar os dados no localStorage
-        saveDataToLocalStorage();
-    } else {
-        // Atualizar a linha existente
-        const row = dataTable.rows[editRowIndex];
-        row.cells[0].textContent = nome;
-        row.cells[1].textContent = azimuteA;
-        row.cells[2].textContent = distanciaA;
-        editButton.style.display = 'none';
-        deleteButton.style.display = 'none';
-        editRowIndex = null;
-        dataForm.reset();
-
-        // Salvar os dados atualizados no localStorage
-        saveDataToLocalStorage();
-    }
-});
-
-editButton.addEventListener('click', function () {
-    editRowIndex = null;
-    dataForm.reset();
-    editButton.style.display = 'none';
-    deleteButton.style.display = 'none';
-});
-
-deleteButton.addEventListener('click', function () {
-    dataTable.deleteRow(editRowIndex);
-    editRowIndex = null;
-    dataForm.reset();
-    editButton.style.display = 'none';
-    deleteButton.style.display = 'none';
-
-    // Salvar os dados após a exclusão
-    saveDataToLocalStorage();
-});
+        clearButton.addEventListener('click', function () {
+            localStorage.removeItem('data');
+            loadData();
+        });

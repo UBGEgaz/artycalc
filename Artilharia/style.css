@@ -89,6 +89,7 @@ input[type="number"] {
 
 input[type="text"] {
     padding: 8px;
+    width: 97%;
     border: 1px solid #555;
     border-radius: 2px;
     background-color: #444;
@@ -115,6 +116,7 @@ button:hover {
     border-radius: 4px;
     background-color: #444;
     color: #eee;
+    margin-bottom: 20px;
 }
 
 #edit-button {
