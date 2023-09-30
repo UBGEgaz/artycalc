@@ -52,9 +52,9 @@ const dataForm = document.getElementById('data-form');
         let editRowIndex = null;
 
         // Função para salvar dados no localStorage
-        function saveData(nome, azimuteA, distanciaA) {
+        function saveData(nome, distanciaA, azimuteA) {
             const data = JSON.parse(localStorage.getItem('data')) || [];
-            data.push({ nome, azimuteA, distanciaA });
+            data.push({ nome, distanciaA, azimuteA });
             localStorage.setItem('data', JSON.stringify(data));
         }
 
