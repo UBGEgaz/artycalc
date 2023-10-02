@@ -111,3 +111,16 @@ clearButton.addEventListener('click', function () {
     localStorage.removeItem('data');
     loadData();
 });
+
+function toggleInformacoes() {
+    var informacoesAdicionais = document.getElementById("informacoesAdicionais");
+    var botaoMostrarOcultar = document.getElementById("mostrarOcultar");
+
+    if (informacoesAdicionais.style.display === "none" || informacoesAdicionais.style.display === "") {
+        informacoesAdicionais.style.display = "block";
+        botaoMostrarOcultar.textContent = "Clique aqui para ocultar informações adicionais";
+    } else {
+        informacoesAdicionais.style.display = "none";
+        botaoMostrarOcultar.textContent = "Clique aqui para mostrar informações adicionais";
+    }
+}

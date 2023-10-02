@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: https://ubgegaz.github.io/ArtyCalc/
+Disallow: https://stefanoferrao.github.io/ArtyCalc/
