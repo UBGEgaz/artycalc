@@ -23,17 +23,23 @@ function calcular() {
     // Exibir os resultados
     var resultadoDistanciaCElement = document.getElementById('resultadoDistanciaC');
     var resultadoAzimuteCElement = document.getElementById('resultadoAzimuteC');
+    var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
 
     resultadoDistanciaCElement.style.color = ''; // Reset color
     resultadoDistanciaCElement.innerHTML = 'Distância: ' + distanciaC.toFixed(2) + 'm';
 
-    /* if (distanciaC > 350) {
-         resultadoDistanciaCElement.style.color = 'red';
-         resultadoDistanciaCElement.innerHTML += ' <span style="color: red;"> - Fora do alcance</span>';
-     }
-*/
     resultadoAzimuteCElement.innerHTML = 'Azimute: ' + alphaCGraus.toFixed(2) + '°';
+
+    // Calcular a diferença em metros para um aumento de 1 grau no azimuteC
+    var novoAzimuteC = alphaCGraus + 1; // Aumento de 1 grau
+    var novoAlphaCRad = novoAzimuteC * (Math.PI / 180);
+    var novoXC = distanciaC * Math.sin(novoAlphaCRad);
+    var novoYC = distanciaC * Math.cos(novoAlphaCRad);
+    var diferencaMetros = Math.sqrt(Math.pow(novoXC - xC, 2) + Math.pow(novoYC - yC, 2));
+
+    diferencaUmGrauElement.innerHTML = 'A cada 1º = ' + diferencaMetros.toFixed(2) + 'm a mais';
 }
+
 // Salvar Coordenadas do Alvo...
 const dataForm = document.getElementById('data-form');
 const dataTable = document.getElementById('data-table');
