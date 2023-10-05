@@ -1,0 +1,126 @@
+<!-- INICIO PAGINA1 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/artycalc/style/style.css">
+</head>
+
+<body>
+    <iframe src="/artycalc/en/menu.html" width="100%" frameborder="0"></iframe>
+    <div id="container">
+        <h2 style="text-align: center; color: #6b8e23;">“Koronides” Field Gun 120mm (100-250m)<h6>Compatible com: DAE
+                3b-2 “Hades' Net”
+                e R-17 “Retiarius” Skirmisher (Katyusha)</h6>
+        </h2> <img src="https://foxhole.wiki.gg/images/b/b6/120-68_Koronides_Field_Gun_Vehicle_Icon.png" alt="Imagem"
+            width="150" style="display: block; margin: 0 auto;">
+        <h3>Enter the Distance and Azimuth of the target:</h3>
+        <div class="input-group">
+            <label for="distanciaA">Distance to Target:</label>
+            <input type="number" id="distanciaA" step="any">
+        </div>
+        <div class="input-group">
+            <label for="azimuteA">Target azimuth:</label>
+            <input type="number" id="azimuteA" step="any">
+        </div>
+        <h3>Report the strength and direction of the wind:</h3>
+
+        <div class="input-group">
+        <label for="distanciaB" style="color: #6b8e23;">Wind force:</label>
+        <select id="distanciaB">
+    
+    <option value="15">Level 1 🟩⬜⬜⬜⬜</option>
+    <option value="30">Level 2 🟩🟩⬜⬜⬜</option>
+    <option value="45">Level 3 🟩🟩🟩⬜⬜</option>
+    <option value="60">Level 4 🟩🟩🟩🟩⬜</option>
+    <option value="75">Level 5 🟩🟩🟩🟩🟩</option>
+    </select>
+    </div>
+    <div class="input-group">
+        <label for="azimuteB">Wind direction:</label>
+        <input type="number" id="azimuteB" step="any">
+    </div>
+    <button onclick="calcular()">Calculate</button>
+    <div id="resultados">
+        <h2>Set the "Koronides" Field Gun to:</h2>
+        <p id="resultadoDistanciaC"></p>
+        <p id="resultadoAzimuteC"></p>
+        <div id="diferencaUmGrau"></div>
+    </div>
+    <!-- INICIO SALVAR COORDENADAS -->
+    <label for="nome">Target Name:</label>
+    <input type="text" id="nome" required><br><br>
+    <form id="data-form">
+        <button type="submit">Save Target</button>
+    </form>
+    <table id="data-table" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Distance to Target</th>
+                <th>Target azimuth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- INICIO SALVAR COORDENADAS -->
+    <p>
+    <div class="flags">
+        <img src="/artycalc/img/flags/flag1.webp">
+        <img src="/artycalc/img/flags/flag2.webp">
+        <img src="/artycalc/img/flags/flag3.webp">
+        <img src="/artycalc/img/flags/flag4.webp">
+        <img src="/artycalc/img/flags/flag5.webp">
+    </div>
+    <p>
+        </div>
+        <button id="mostrarOcultar" onclick="toggleInformacoes()">Click here to show/hide additional information additional</button>
+    <div id="informacoesAdicionais" style="display: none;">
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+
+        <body>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Life Points</th>
+                    <th>Disabled Under</th>
+                    <th>Resistance</th>
+                    <th>Packaged Size</th>
+                    <th>Repair Cost</th>
+                    <th>Grip</th>
+                    <th>Arming</th>
+                    <th>Production Site</th>
+                    <th>Cost</th>
+                    <th>Shooting Range</th>
+                </tr>
+                <tr>
+                    <td>120-68 "Koronides" Field Gun</td>
+                    <td>1000</td>
+                    <td>50% life points</td>
+                    <td>Light armour</td>
+                    <td>Small</td>
+                    <td>120<img src="https://foxhole.wiki.gg/images/1/12/Basic_Materials.png" width="30" height="30">
+                    </td>
+                    <td>2</td>
+                    <td>120mm Light Artillery Cannon</td>
+                    <td>Garage</td>
+                    <td>50<img src="https://foxhole.wiki.gg/images/9/94/Refined_Materials.png" width="30" height="30">
+                    <td>100-250 metres</td>
+                </tr>
+            </table>
+    </div>
+    <script src="/artycalc/en/script.js"></script>
+
+</html>
+<!-- FIM PAGINA1 -->
+</body>
+
+</html>
