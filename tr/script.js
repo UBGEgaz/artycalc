@@ -1,4 +1,4 @@
-function calcular() {
+function calcular(limite) {
     // Obter valores dos campos de entrada para o ponto A
     var dA = parseFloat(document.getElementById('distanciaA').value);
     var alphaA = parseFloat(document.getElementById('azimuteA').value);
@@ -24,10 +24,17 @@ function calcular() {
     var resultadoDistanciaCElement = document.getElementById('resultadoDistanciaC');
     var resultadoAzimuteCElement = document.getElementById('resultadoAzimuteC');
     var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
+    var resultadoDistanciaCStatusElement = document.getElementById('resultadoDistanciaCStatus');
+    
+// Verificar se a distância é maior que o limite
+if (distanciaC > limite) {
+    resultadoDistanciaCElement.style.color = 'red'; // Defina a cor como vermelha
+    resultadoDistanciaCElement.innerHTML = distanciaC.toFixed(2) + 'm Ulaşılamaz';
+    statusDistanciaCElement.innerHTML = 'Fora do alcance'; // Exiba "Fora do alcance"
+}
 
     resultadoDistanciaCElement.style.color = ''; // Reset color
     resultadoDistanciaCElement.innerHTML = '' + distanciaC.toFixed(2) + 'm';
-
     resultadoAzimuteCElement.innerHTML = '' + alphaCGraus.toFixed(2) + '°';
 
     // Calcular a diferença em metros para um aumento de 1 grau no azimuteC
@@ -37,7 +44,7 @@ function calcular() {
     var novoYC = distanciaC * Math.cos(novoAlphaCRad);
     var diferencaMetros = Math.sqrt(Math.pow(novoXC - xC, 2) + Math.pow(novoYC - yC, 2));
 
-    diferencaUmGrauElement.innerHTML = 'Her 1´de bir = ' + diferencaMetros.toFixed(2) + 'daha fazla metre';
+    diferencaUmGrauElement.innerHTML = 'Her 1`de = ' + diferencaMetros.toFixed(2) + 'daha fazla metre';
 }
 
 // Salvar Coordenadas do Alvo...
