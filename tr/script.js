@@ -26,9 +26,9 @@ function calcular() {
     var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
 
     resultadoDistanciaCElement.style.color = ''; // Reset color
-    resultadoDistanciaCElement.innerHTML = 'Mesafe: ' + distanciaC.toFixed(2) + 'm';
+    resultadoDistanciaCElement.innerHTML = '' + distanciaC.toFixed(2) + 'm';
 
-    resultadoAzimuteCElement.innerHTML = 'Azimut: ' + alphaCGraus.toFixed(2) + '°';
+    resultadoAzimuteCElement.innerHTML = '' + alphaCGraus.toFixed(2) + '°';
 
     // Calcular a diferença em metros para um aumento de 1 grau no azimuteC
     var novoAzimuteC = alphaCGraus + 1; // Aumento de 1 grau
@@ -64,7 +64,7 @@ function loadData() {
         newRow.insertCell(1).textContent = item.distanciaA;
         newRow.insertCell(2).textContent = item.azimuteA;
         const actionsCell = newRow.insertCell(3);
-        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i> Düzenlemek için</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i> Silmek</button>`;
+        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i>✏️</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i>🗑️</button>`;
     });
     // Adicionar eventos de clique para editar e excluir
     const editButtons = document.querySelectorAll('.edit-button');
@@ -124,9 +124,9 @@ function toggleInformacoes() {
 
     if (informacoesAdicionais.style.display === "none" || informacoesAdicionais.style.display === "") {
         informacoesAdicionais.style.display = "block";
-        botaoMostrarOcultar.textContent = "Ek bilgileri gizlemek için burayı tıklayın";
+        botaoMostrarOcultar.textContent = "-";
     } else {
         informacoesAdicionais.style.display = "none";
-        botaoMostrarOcultar.textContent = "Ek bilgi göstermek için burayı tıklayın";
+        botaoMostrarOcultar.textContent = "+";
     }
 }
