@@ -1,0 +1,218 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    max-width: 600px;
+    max-width: 100%;
+    padding: 0;
+    background-color: #111;
+    color: #eee;
+}
+
+#container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: slide 2s ease;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+h1,
+h2 {
+    color: #6b8e23;
+    margin-bottom: 0px;
+}
+h6 {
+    text-align: center;
+    margin-top: 0px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Estilos para rótulos específicos */
+label[for="distanciaA"],
+label[for="azimuteA"],
+label[for="azimuteB"] {
+    color: #6b8e23;
+}
+
+/* Estilize o rótulo para "Força do vento" */
+label[for="distanciaB"] {
+    display: inline-block;
+    /* Isso faz com que o rótulo e o select fiquem na mesma linha */
+    width: auto;
+    /* Defina a largura desejada para o rótulo */
+    flex: 1;
+    margin-right: 77px;
+    /* Espaço entre o rótulo e o select */
+    color: #6b8e23;
+}
+
+/* Estilize o select */
+select#distanciaB {
+    /* width: 100px; /* Defina a largura desejada para o select */
+    padding: 8px;
+    flex: 2;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #eee;
+}
+
+/* Estilize as opções do select */
+select#distanciaB option {
+    background-color: #444;
+    color: #eee;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #eee;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 97%;
+    border: 1px solid #555;
+    border-radius: 2px;
+    background-color: #444;
+    color: #eee;
+}
+
+button {
+    background-color: #6b8e23;
+    color: #fff;
+    border: none;
+    padding: 5px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4b671a;
+}
+
+#resultados {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #eee;
+    margin-bottom: 20px;
+}
+
+#edit-button {
+    display: none;
+}
+
+#delete-button {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.input-group label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-group input {
+    flex: 2;
+}
+
+.flags {
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    border: 1px solid #555555;
+    border-radius: 2px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 2px solid #ddd;
+    padding: 8px;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+th {
+    background-color: #6b8e23;
+}
+
+/* Adicione uma regra para dispositivos móveis usando media query */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Ajuste o tamanho da fonte para dispositivos móveis */
+    }
+
+    #container {
+        max-width: 100%;
+        padding: 10px; /* Reduza o padding */
+    }
+
+    /* Faça com que os elementos dentro de .input-group empilhem verticalmente */
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Ajuste o estilo da tabela para dispositivos móveis */
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    /* Reduza o tamanho do iframe para telas menores */
+    iframe {
+        width: 100%;
+    }
+
+    /* Mantenha as "flags" em uma linha, mas ajuste-as proporcionalmente ao tamanho da tela */
+    .flags {
+        display: none;
+    }
+
+    #mostrarOcultar {
+        display: none;
+    }
+}

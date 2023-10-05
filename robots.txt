@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: https://ubgegaz.github.io/artycalc

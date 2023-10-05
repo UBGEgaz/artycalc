@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME!</title>
+    <img id= logo src="/artycalc/img/logo.png">
+</head>
+<body>
+    <div class="welcome-screen">
+        <h1>WELCOME!</h1>
+        <div class="language-options">
+            <a href="/artycalc/pt/home.html">
+                <img src="/artycalc/img/paises/br.png">
+            </a>
+            <a href="/artycalc/tr/home.html">
+                <img src="/artycalc/img/paises/tr.png">
+            </a>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+/* Reset de estilos para remover margens e preenchimentos padrão */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222; /* Cor de fundo escura */
+    color: #fff; /* Cor do texto */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+img#logo {
+    width: 180px;
+    margin-bottom: 50px;
+    filter: invert(1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.language-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.language-options a {
+    text-decoration: none;
+    border: none;
+    color: #fff; /* Cor do texto dos links */
+}
+
+.language-options img {
+    width: 50px; /* Tamanho das imagens de bandeira */
+    height: 50px;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Efeito de escala nas imagens das bandeiras quando hover */
+.language-options img:hover {
+    transform: scale(1.6);
+}
+</style>
