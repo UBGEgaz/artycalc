@@ -122,6 +122,10 @@ button:hover {
     margin-bottom: 20px;
 }
 
+#diferencaUmGrau {
+    font-size: x-small;
+}
+
 #edit-button {
     display: none;
 }
