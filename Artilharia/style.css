@@ -174,3 +174,45 @@ td {
 th {
     background-color: #6b8e23;
 }
+
+/* Adicione uma regra para dispositivos móveis usando media query */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Ajuste o tamanho da fonte para dispositivos móveis */
+    }
+
+    #container {
+        max-width: 100%;
+        padding: 10px; /* Reduza o padding */
+    }
+
+    /* Faça com que os elementos dentro de .input-group empilhem verticalmente */
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Ajuste o estilo da tabela para dispositivos móveis */
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    /* Reduza o tamanho do iframe para telas menores */
+    iframe {
+        width: 100%;
+    }
+
+    /* Mantenha as "flags" em uma linha, mas ajuste-as proporcionalmente ao tamanho da tela */
+    .flags {
+        display: none;
+    }
+
+    #mostrarOcultar {
+        display: none;
+    }
+}
