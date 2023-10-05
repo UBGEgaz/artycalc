@@ -292,25 +292,28 @@ body {
   z-index: 1000; /* Certifique-se de que o menu esteja acima de todos os outros elementos */
 }
 
-img#logo {
-    width: 90px;
-    filter: invert(1);
+img#logo1 {
+  width: 90px;
+  filter: invert(1);
+}
+
+img#logo2 {
+  width: 90px;
+  filter: invert(1);
+  transform: scaleX(-1);
 }
 
 </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
-
 <div class="header">
-  <div class="header__logo">
-    <strong></strong>
-  </div>
   <a href="/artycalc/" target="_parent">
-  <img id= logo src="/artycalc/img/logo.png"></a>
+    <img id=logo1 src="/artycalc/img/logo.png"></a>
+
   <nav class="navbar">
+
   <ul class="navbar__menu">
-    
     <li class="navbar__item"><a class="navbar__link" href="/artycalc/en/home.html" target="_parent">0</a></li>
     <li class="navbar__item"><a class="navbar__link" href="/artycalc/en/Koronides Field Gun.html" target="_parent">120</a></li>
     <li class="navbar__item"><a class="navbar__link" href="/artycalc/en/Thunderbolt Cannon.html" target="_parent">150</a></li>
@@ -318,6 +321,8 @@ img#logo {
       </li>
   </ul>
 </nav>
+<a href="/artycalc/" target="_parent">
+  <img id=logo2 src="/artycalc/img/logo.png"></a>
 </div>
 </body>
 </html>
