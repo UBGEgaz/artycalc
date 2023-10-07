@@ -2,17 +2,17 @@ var translations = {
     en: {
       outOfRange: 'm Out of Range',
       every1Degree: 'Every 1° = ',
-      metersMore: 'meters more',
+      metersMore: ' meters more',
     },
     pt: {
       outOfRange: 'm Fora do Alcance',
       every1Degree: 'A cada 1° = ',
-      metersMore: 'metros a mais',
+      metersMore: ' metros a mais',
     },
     tr: {
         outOfRange: 'm Menzil Dışı',
         every1Degree: 'Her 1´de bir = ',
-        metersMore: 'daha fazla metre',
+        metersMore: ' daha fazla metre',
       }
   };
 
