@@ -3,16 +3,28 @@ var translations = {
       outOfRange: 'm Out of Range',
       every1Degree: 'Every 1° = ',
       metersMore: ' meters more',
+      textodistancia: 'Distance: ',
+      textoazimute: 'Azimuth: ',
+      ocultarinformacoes: 'Click here to hide additional information',
+      mostrarinformacoes: 'Click here to show additional information',
     },
     pt: {
       outOfRange: 'm Fora do Alcance',
       every1Degree: 'A cada 1° = ',
       metersMore: ' metros a mais',
+      textodistancia: 'Distancia: ',
+      textoazimute: 'Azimute: ',
+      ocultarinformacoes: 'Clique aqui para ocultar informações adicionais',
+      mostrarinformacoes: 'Clique aqui para mostrar informações adicionais',
     },
     tr: {
         outOfRange: 'm Menzil Dışı',
         every1Degree: 'Her 1´de bir = ',
         metersMore: ' daha fazla metre',
+        textodistancia: 'Mesafe: ',
+        textoazimute: 'Azimut: ',
+        ocultarinformacoes: 'Ek bilgileri gizlemek için burayı tıklayın',
+        mostrarinformacoes: 'Ek bilgi göstermek için burayı tıklayın',
       }
   };
 
@@ -55,8 +67,8 @@ if (distanciaC > limite) {
 }
 
     resultadoDistanciaCElement.style.color = ''; // Reset color
-    resultadoDistanciaCElement.innerHTML = '' + distanciaC.toFixed(2) + 'm';
-    resultadoAzimuteCElement.innerHTML = '' + alphaCGraus.toFixed(2) + '°';
+    resultadoDistanciaCElement.innerHTML = translations[currentLanguage].textodistancia + distanciaC.toFixed(2) + 'm';
+    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
 
     // Calcular a diferença em metros para um aumento de 1 grau no azimuteC
     var novoAzimuteC = alphaCGraus + 1; // Aumento de 1 grau
@@ -152,9 +164,9 @@ function toggleInformacoes() {
 
     if (informacoesAdicionais.style.display === "none" || informacoesAdicionais.style.display === "") {
         informacoesAdicionais.style.display = "block";
-        botaoMostrarOcultar.textContent = "-";
+        botaoMostrarOcultar.textContent = translations[currentLanguage].ocultarinformacoes;
     } else {
         informacoesAdicionais.style.display = "none";
-        botaoMostrarOcultar.textContent = "+";
+        botaoMostrarOcultar.textContent = translations[currentLanguage].mostrarinformacoes;
     }
 }
