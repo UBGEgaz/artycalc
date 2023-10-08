@@ -57,15 +57,14 @@ function calcular(limite) {
     var resultadoDistanciaCElement = document.getElementById('resultadoDistanciaC');
     var resultadoAzimuteCElement = document.getElementById('resultadoAzimuteC');
     var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
-    var resultadoDistanciaCStatusElement = document.getElementById('resultadoDistanciaCStatus');
-    
-// Verificar se a distância é maior que o limite
+
+    // Verificar se a distância é maior que o limite
 if (distanciaC > limite) {
     resultadoDistanciaCElement.style.color = 'red'; // Defina a cor como vermelha
     resultadoDistanciaCElement.innerHTML = distanciaC.toFixed(2) + translations[currentLanguage].outOfRange;
+    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
     statusDistanciaCElement.innerHTML = translations[currentLanguage].outOfRange; // Exiba a tradução correspondente
 }
-
     resultadoDistanciaCElement.style.color = ''; // Reset color
     resultadoDistanciaCElement.innerHTML = translations[currentLanguage].textodistancia + distanciaC.toFixed(2) + 'm';
     resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
@@ -79,6 +78,8 @@ if (distanciaC > limite) {
 
     diferencaUmGrauElement.innerHTML = translations[currentLanguage].every1Degree + diferencaMetros.toFixed(2) + translations[currentLanguage].metersMore;
 }
+
+
 
 // Salvar Coordenadas do Alvo...
 const dataForm = document.getElementById('data-form');
@@ -104,7 +105,7 @@ function loadData() {
         newRow.insertCell(1).textContent = item.distanciaA;
         newRow.insertCell(2).textContent = item.azimuteA;
         const actionsCell = newRow.insertCell(3);
-        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i>✏️</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i>🗑️</button>`;
+        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i> Editar</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i> Excluir</button>`;
     });
     // Adicionar eventos de clique para editar e excluir
     const editButtons = document.querySelectorAll('.edit-button');
