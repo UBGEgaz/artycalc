@@ -7,6 +7,8 @@ var translations = {
       textoazimute: 'Azimuth: ',
       ocultarinformacoes: 'Click here to hide additional information',
       mostrarinformacoes: 'Click here to show additional information',
+      //edit: 'Edit',
+      //delete: 'Delete',
     },
     pt: {
       outOfRange: 'm Fora do Alcance',
@@ -16,6 +18,8 @@ var translations = {
       textoazimute: 'Azimute: ',
       ocultarinformacoes: 'Clique aqui para ocultar informações adicionais',
       mostrarinformacoes: 'Clique aqui para mostrar informações adicionais',
+      //edit: 'Editar',
+      //delete: 'Excluir',
     },
     tr: {
         outOfRange: 'm Menzil Dışı',
@@ -25,6 +29,8 @@ var translations = {
         textoazimute: 'Azimut: ',
         ocultarinformacoes: 'Ek bilgileri gizlemek için burayı tıklayın',
         mostrarinformacoes: 'Ek bilgi göstermek için burayı tıklayın',
+        //edit: 'Düzenle',
+        //delete: 'Sil',
       }
   };
 
@@ -53,21 +59,6 @@ function calcular(limite) {
     if (alphaCGraus < 0) {
         alphaCGraus += 360;
     }
-    // Exibir os resultados
-    var resultadoDistanciaCElement = document.getElementById('resultadoDistanciaC');
-    var resultadoAzimuteCElement = document.getElementById('resultadoAzimuteC');
-    var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
-
-    // Verificar se a distância é maior que o limite
-if (distanciaC > limite) {
-    resultadoDistanciaCElement.style.color = 'red'; // Defina a cor como vermelha
-    resultadoDistanciaCElement.innerHTML = distanciaC.toFixed(2) + translations[currentLanguage].outOfRange;
-    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
-    statusDistanciaCElement.innerHTML = translations[currentLanguage].outOfRange; // Exiba a tradução correspondente
-}
-    resultadoDistanciaCElement.style.color = ''; // Reset color
-    resultadoDistanciaCElement.innerHTML = translations[currentLanguage].textodistancia + distanciaC.toFixed(2) + 'm';
-    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
 
     // Calcular a diferença em metros para um aumento de 1 grau no azimuteC
     var novoAzimuteC = alphaCGraus + 1; // Aumento de 1 grau
@@ -76,10 +67,24 @@ if (distanciaC > limite) {
     var novoYC = distanciaC * Math.cos(novoAlphaCRad);
     var diferencaMetros = Math.sqrt(Math.pow(novoXC - xC, 2) + Math.pow(novoYC - yC, 2));
 
+    // Exibir os resultados
+    var resultadoDistanciaCElement = document.getElementById('resultadoDistanciaC');
+    var resultadoAzimuteCElement = document.getElementById('resultadoAzimuteC');
+    var diferencaUmGrauElement = document.getElementById('diferencaUmGrau');
+
+// Verificar se a distância é maior que o limite
+if (distanciaC > limite) {
+    resultadoDistanciaCElement.style.color = 'red'; // Defina a cor como vermelha
+    resultadoDistanciaCElement.innerHTML = distanciaC.toFixed(2) + translations[currentLanguage].outOfRange;
+    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
     diferencaUmGrauElement.innerHTML = translations[currentLanguage].every1Degree + diferencaMetros.toFixed(2) + translations[currentLanguage].metersMore;
+} else {
+    resultadoDistanciaCElement.style.color = ''; // Reset color
+    resultadoDistanciaCElement.innerHTML = translations[currentLanguage].textodistancia + distanciaC.toFixed(2) + 'm';
+    resultadoAzimuteCElement.innerHTML = translations[currentLanguage].textoazimute + alphaCGraus.toFixed(2) + '°';
+    diferencaUmGrauElement.innerHTML = translations[currentLanguage].every1Degree + diferencaMetros.toFixed(2) + translations[currentLanguage].metersMore;
+        }
 }
-
-
 
 // Salvar Coordenadas do Alvo...
 const dataForm = document.getElementById('data-form');
@@ -105,7 +110,8 @@ function loadData() {
         newRow.insertCell(1).textContent = item.distanciaA;
         newRow.insertCell(2).textContent = item.azimuteA;
         const actionsCell = newRow.insertCell(3);
-        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i> Editar</button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i> Excluir</button>`;
+        actionsCell.innerHTML = `<button class="edit-button" data-index="${index}"><i class="far fa-edit"></i> ✎ </button> <button class="delete-button" data-index="${index}"><i class="far fa-trash-alt"></i> 🗑️ </button>`;
+
     });
     // Adicionar eventos de clique para editar e excluir
     const editButtons = document.querySelectorAll('.edit-button');
