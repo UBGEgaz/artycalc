@@ -3,8 +3,17 @@
 <html lang="pt">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2W4L0SL12B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2W4L0SL12B');
+    </script>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/artycalc/style/style.css">
     <title>120mm PT</title>
 </head>
@@ -30,60 +39,61 @@
         <h3>Informe a força e direção do vento:</h3>
 
         <div class="input-group">
-        <label for="distanciaB" style="color: #6b8e23;">Força do vento:</label>
-        <select id="distanciaB">
-    
-    <option value="15">Nível 1 🟩⬜⬜⬜⬜</option>
-    <option value="30">Nível 2 🟩🟩⬜⬜⬜</option>
-    <option value="45">Nível 3 🟩🟩🟩⬜⬜</option>
-    <option value="60">Nível 4 🟩🟩🟩🟩⬜</option>
-    <option value="75">Nível 5 🟩🟩🟩🟩🟩</option>
-    </select>
-    </div>
-    <div class="input-group">
-        <label for="azimuteB">Direção do vento:</label>
-        <input type="number" id="azimuteB" step="any">
-    </div>
-    <button onclick="calcular(250)">Calcular</button>
-    <div id="resultados">
-        <h2>Ajuste o “Koronides” Field Gun para:</h2>
-        <p id="resultadoDistanciaC" id="resultadoDistanciaCStatus"></p>
-        <p id="resultadoAzimuteC"></p>
-        <div id="diferencaUmGrau"></div>
-    </div>
-    
-    <!-- INICIO SALVAR COORDENADAS -->
-    <label for="nome">Nome do Alvo:</label>
-    <input type="text" id="nome" required><br><br>
-    <form id="data-form">
-        <button type="submit">Salvar Alvo</button>
-    </form>
-    <table id="data-table" border="1">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Distância do Alvo</th>
-                <th>Azimute do Alvo</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <!-- INICIO SALVAR COORDENADAS -->
-    <p>
-    <div class="flags">
-        <img src="/artycalc/img/flags/flag1.webp">
-        <img src="/artycalc/img/flags/flag2.webp">
-        <img src="/artycalc/img/flags/flag3.webp">
-        <img src="/artycalc/img/flags/flag4.webp">
-        <img src="/artycalc/img/flags/flag5.webp">
-    </div>
-    <p>
+            <label for="distanciaB" style="color: #6b8e23;">Força do vento:</label>
+            <select id="distanciaB">
+
+                <option value="15">Nível 1 🟩⬜⬜⬜⬜</option>
+                <option value="30">Nível 2 🟩🟩⬜⬜⬜</option>
+                <option value="45">Nível 3 🟩🟩🟩⬜⬜</option>
+                <option value="60">Nível 4 🟩🟩🟩🟩⬜</option>
+                <option value="75">Nível 5 🟩🟩🟩🟩🟩</option>
+            </select>
         </div>
-        <button id="mostrarOcultar" onclick="toggleInformacoes()">Clique aqui para mostrar/ocultar informações
-            adicionais</button>
+        <div class="input-group">
+            <label for="azimuteB">Direção do vento:</label>
+            <input type="number" id="azimuteB" step="any">
+        </div>
+        <button onclick="calcular(250)">Calcular</button>
+        <div id="resultados">
+            <h2>Ajuste o “Koronides” Field Gun para:</h2>
+            <p id="resultadoDistanciaC" id="resultadoDistanciaCStatus"></p>
+            <p id="resultadoAzimuteC"></p>
+            <div id="diferencaUmGrau"></div>
+        </div>
+
+        <!-- INICIO SALVAR COORDENADAS -->
+        <label for="nome">Nome do Alvo:</label>
+        <input type="text" id="nome" required><br><br>
+        <form id="data-form">
+            <button type="submit">Salvar Alvo</button>
+        </form>
+        <table id="data-table" border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Distância do Alvo</th>
+                    <th>Azimute do Alvo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <!-- INICIO SALVAR COORDENADAS -->
+        <p>
+        <div class="flags">
+            <img src="/artycalc/img/flags/flag1.webp">
+            <img src="/artycalc/img/flags/flag2.webp">
+            <img src="/artycalc/img/flags/flag3.webp">
+            <img src="/artycalc/img/flags/flag4.webp">
+            <img src="/artycalc/img/flags/flag5.webp">
+        </div>
+        <p>
+    </div>
+    <button id="mostrarOcultar" onclick="toggleInformacoes()">Clique aqui para mostrar/ocultar informações
+        adicionais</button>
     <div id="informacoesAdicionais" style="display: none;">
+
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,7 +131,7 @@
             </table>
     </div>
     <script src="/artycalc/script/script.js"></script>
-<!-- FIM PAGINA1 -->
+    <!-- FIM PAGINA1 -->
 </body>
 
 </html>
