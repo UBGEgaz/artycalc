@@ -3,6 +3,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2W4L0SL12B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2W4L0SL12B');
+    </script>
     <link rel="stylesheet" type="text/css" href="/artycalc/style/style.css">
     <title>120mm EN</title>
 </head>
@@ -27,58 +36,60 @@
         <h3>Report the strength and direction of the wind:</h3>
 
         <div class="input-group">
-        <label for="distanciaB" style="color: #6b8e23;">Wind force:</label>
-        <select id="distanciaB">
-    
-    <option value="15">Level 1 🟩⬜⬜⬜⬜</option>
-    <option value="30">Level 2 🟩🟩⬜⬜⬜</option>
-    <option value="45">Level 3 🟩🟩🟩⬜⬜</option>
-    <option value="60">Level 4 🟩🟩🟩🟩⬜</option>
-    <option value="75">Level 5 🟩🟩🟩🟩🟩</option>
-    </select>
-    </div>
-    <div class="input-group">
-        <label for="azimuteB">Wind direction:</label>
-        <input type="number" id="azimuteB" step="any">
-    </div>
-    <button onclick="calcular(250)">Calculate</button>
-    <div id="resultados">
-        <h2>Set the "Koronides" Field Gun to:</h2>
-        <p id="resultadoDistanciaC" id="resultadoDistanciaCStatus"></p>
-        <p id="resultadoAzimuteC"></p>
-        <div id="diferencaUmGrau"></div>
-    </div>
-    <!-- INICIO SALVAR COORDENADAS -->
-    <label for="nome">Target Name:</label>
-    <input type="text" id="nome" required><br><br>
-    <form id="data-form">
-        <button type="submit">Save Target</button>
-    </form>
-    <table id="data-table" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Distance to Target</th>
-                <th>Target azimuth</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <!-- INICIO SALVAR COORDENADAS -->
-    <p>
-    <div class="flags">
-        <img src="/artycalc/img/flags/flag1.webp">
-        <img src="/artycalc/img/flags/flag2.webp">
-        <img src="/artycalc/img/flags/flag3.webp">
-        <img src="/artycalc/img/flags/flag4.webp">
-        <img src="/artycalc/img/flags/flag5.webp">
-    </div>
-    <p>
+            <label for="distanciaB" style="color: #6b8e23;">Wind force:</label>
+            <select id="distanciaB">
+
+                <option value="15">Level 1 🟩⬜⬜⬜⬜</option>
+                <option value="30">Level 2 🟩🟩⬜⬜⬜</option>
+                <option value="45">Level 3 🟩🟩🟩⬜⬜</option>
+                <option value="60">Level 4 🟩🟩🟩🟩⬜</option>
+                <option value="75">Level 5 🟩🟩🟩🟩🟩</option>
+            </select>
         </div>
-        <button id="mostrarOcultar" onclick="toggleInformacoes()">Click here to show/hide additional information additional</button>
+        <div class="input-group">
+            <label for="azimuteB">Wind direction:</label>
+            <input type="number" id="azimuteB" step="any">
+        </div>
+        <button onclick="calcular(250)">Calculate</button>
+        <div id="resultados">
+            <h2>Set the "Koronides" Field Gun to:</h2>
+            <p id="resultadoDistanciaC" id="resultadoDistanciaCStatus"></p>
+            <p id="resultadoAzimuteC"></p>
+            <div id="diferencaUmGrau"></div>
+        </div>
+        <!-- INICIO SALVAR COORDENADAS -->
+        <label for="nome">Target Name:</label>
+        <input type="text" id="nome" required><br><br>
+        <form id="data-form">
+            <button type="submit">Save Target</button>
+        </form>
+        <table id="data-table" border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Distance to Target</th>
+                    <th>Target azimuth</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <!-- INICIO SALVAR COORDENADAS -->
+        <p>
+        <div class="flags">
+            <img src="/artycalc/img/flags/flag1.webp">
+            <img src="/artycalc/img/flags/flag2.webp">
+            <img src="/artycalc/img/flags/flag3.webp">
+            <img src="/artycalc/img/flags/flag4.webp">
+            <img src="/artycalc/img/flags/flag5.webp">
+        </div>
+        <p>
+    </div>
+    <button id="mostrarOcultar" onclick="toggleInformacoes()">Click here to show/hide additional information
+        additional</button>
     <div id="informacoesAdicionais" style="display: none;">
+
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
